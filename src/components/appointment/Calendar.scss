@@ -1,0 +1,116 @@
+.calendar {
+  background-color: var(--secondary-beige);
+  text-align: left;
+  padding: 20px;
+
+  &__head {
+    display: flex;
+
+    &__month {
+      display: flex;
+      gap: 30px;
+
+      &__paragraph {
+        font-family: anton;
+        font-size: 1.625rem;
+        color: var(--primary-blue);
+      }
+
+      &__paragraph:first-letter {
+        text-transform: uppercase;
+      }
+
+      &__button {
+        background-color: var(--primary-green);
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.875rem;
+        height: 1.875rem;
+
+        &--unactive {
+          background-color: transparent;
+          border: 3px solid var(--primary-beige);
+          cursor: default;
+        }
+
+        &__icon {
+          height: 1.25rem;
+        }
+      }
+    }
+
+    &__availability {
+      font-family: catamaran;
+      color: black;
+      font-size: 1.25rem;
+      font-weight: 700;
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  &__date {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+
+    &__card{
+      border: none !important;
+      margin: auto;
+
+      &__content{
+        font-family: catamaran;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        background-color: var(--primary-green);
+        width: 8.125rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        padding-left: 0.625rem;
+      }
+
+      &--always--hidden {
+        display: none;
+      }
+
+      &__availability{
+        color: black;
+        background-color: white;
+        border: solid 3px var(--primary-green);
+        width: 8.125rem;
+        height: 4.688rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Source Sans 3";
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .calendar__date__card--hidden {
+    display: none;
+  }
+
+  .calendar__date {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .calendar {
+    &__head {
+      flex-direction: column;
+    }
+
+    &__date {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

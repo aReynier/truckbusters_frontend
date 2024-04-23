@@ -1,0 +1,78 @@
+.form__selected__hour {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-green);
+    width: 520px;
+    color: var(--primary-blue);
+    font-family: catamaran;
+    font-size: 26px;
+    font-weight: 700;
+    padding: 35px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+
+    &__icon {
+        cursor: pointer;
+    }
+}
+
+.form__content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form__title {
+    text-align: left;
+    color: var(--primary-blue);
+    font-family: catamaran;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form__content__sub__title {
+    font-family: catamaran;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.form__content__label {
+    font-family: "Source Sans 3";
+    font-size: 18px;
+}
+
+.form__content__input {
+    background-color: white;
+    border: 3px solid var(--primary-beige);
+    padding: 3px;
+    padding-left: 15px;
+}
+
+.form__content__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.form__content__group__field {
+    display: flex;
+    width: calc(50% - 20px);
+    flex-direction: column;
+}
+
+.form__submit {
+    margin: auto;
+    background-color: var(--primary-green);
+    padding: 15px 30px;
+    margin-top: 40px;
+    color: var(--primary-blue);
+    font-family: catamaran;
+    font-size: 24px;
+    font-weight: 700;
+}

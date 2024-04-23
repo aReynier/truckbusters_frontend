@@ -2,9 +2,10 @@ import { useState } from 'react';
 import * as dateFns from 'date-fns';
 import fr from 'date-fns/locale/fr';
 import './Calendar.scss'
-import LeftArrow from '../../assets/pictos/left-arrow.svg'
-import LeftArrowNo from '../../assets/pictos/left-arrow-no.svg'
-import RightArrow from '../../assets/pictos/right-arrow.svg'
+import LeftArrow from '../../../assets/pictos/left-arrow.svg'
+import LeftArrowNo from '../../../assets/pictos/left-arrow-no.svg'
+import RightArrow from '../../../assets/pictos/right-arrow.svg'
+import Modal from '../modal/Modal.jsx';
 
 const formatOfYear = 'yyy';
 const formatOfMonth = 'MMMM';
@@ -16,7 +17,10 @@ const locale = fr;
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date())
-//
+  //thinking about making separate component for the modal window
+  const [showModal, setShowModal] = useState(false);
+  const [clickedDate, setClickedDate] = useState(currentDate);
+
   const initialCurrentDate = new Date();
 
   //find fisrt day of current month
@@ -34,8 +38,14 @@ const Calendar = () => {
   //For having the days of the week
   const weekDays = dateFns.eachDayOfInterval({start: firstDayCurrentWeek, end: lastDayCurrentWeek})
 
+  const handleDayClick = (clickedDate) => {
+    setClickedDate(clickedDate); // Assuming you have state variable clickedDate
+    setShowModal(true);
+  };
+
   return (
   <div>
+    <Modal open={showModal} onClose={() => setShowModal(false)} weekDay={dateFns.format(clickedDate, formatOfWeek, { locale })} monthNumber={dateFns.format(clickedDate, formatOfDay, { locale })} month={dateFns.format(clickedDate, formatOfMonth, { locale })} year={dateFns.format(clickedDate, formatOfYear, { locale })} />
     <div className="calendar">
       <div className="calendar__head" style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', margin: '1rem 1rem 1rem 0'}}>
         <div className="calendar__head__month">
@@ -56,7 +66,9 @@ const Calendar = () => {
       {weekDays.map((date) => (
           <button key={`${dateFns.format(date, formatOfDay)}-${dateFns.format(date, formatOfMonth)}-${dateFns.format(date, formatOfYear)}`} style={{ opacity: !dateFns.isSameMonth(date, currentDate)? '0': '',
           display: dateFns.isSunday(date, currentDate)? 'none': ''
-          }} className={`calendar__date__card ${!dateFns.isSameMonth(date, currentDate) ? 'calendar__date__card--hidden' : ''} ${ !dateFns.isSameMonth(date, currentDate) && (dateFns.getDay(firstDayCurrentMonth) === 0 && dateFns.getDate(firstDayCurrentMonth) === 1) ? 'calendar__date__card--always--hidden' : ''}`}>
+          }} className={`calendar__date__card ${!dateFns.isSameMonth(date, currentDate) ? 'calendar__date__card--hidden' : ''} ${ !dateFns.isSameMonth(date, currentDate) && (dateFns.getDay(firstDayCurrentMonth) === 0 && dateFns.getDate(firstDayCurrentMonth) === 1) ? 'calendar__date__card--always--hidden' : ''}`}
+          onClick={() => handleDayClick(date)
+            } >
             <div className="calendar__date__card__content">
               <span className="calendar__date__card__content__paragraph" style={{ color: !dateFns.isSameMonth(date, currentDate)? '#000': ''}}>{dateFns.format(date, formatOfWeek, { locale })} {dateFns.format(date, formatOfDay)}</span>
             </div>

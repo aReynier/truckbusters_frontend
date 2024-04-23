@@ -1,0 +1,60 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__window {
+        width: 470px;
+        height: 255px;
+        background-color: var(--secondary-beige);
+        border: 3px solid var(--primary-beige);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--close {
+            color: black;
+            align-self: flex-end;
+            margin-top: 15px;
+            margin-right: 15px;
+        }
+
+        &__date {
+            color: var(--primary-blue);
+            font-family: catamaran;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        &__info {
+            color: var(--primary-blue);
+            font-family: "Source Sans 3";
+            font-size: 18px;
+        }
+
+        &__content {
+            width: 280px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 35px;
+
+            &__Hour {
+                width: 80px;
+                height: 35px;
+                background-color: var(--primary-green);
+                color: var(--primary-blue);
+                font-family: catamaran;
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+    }
+}

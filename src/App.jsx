@@ -1,11 +1,11 @@
 import './App.css'
-import Appointment from "./components/appointment"
+import Calendar from "./components/appointment/calendar/Calendar"
 
 function App() {
 
   return (
     <>
-      <Appointment />
+      <Calendar />
     </>
   )
 }

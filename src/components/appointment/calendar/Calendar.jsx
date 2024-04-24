@@ -15,7 +15,9 @@ const formatOfDay = 'd';
 //to translate months and weekdays into french
 const locale = fr;
 
-const Calendar = () => {
+const Calendar = (props) => {
+  const { calendarToggleVisibility, formToggleVisibility, displayCalendar, displayForm, configureFrontDate, configureBackDate } = props
+
   const [currentDate, setCurrentDate] = useState(new Date())
   //thinking about making separate component for the modal window
   const [showModal, setShowModal] = useState(false);
@@ -44,8 +46,8 @@ const Calendar = () => {
   };
 
   return (
-  <div>
-    <Modal open={showModal} onClose={() => setShowModal(false)} weekDay={dateFns.format(clickedDate, formatOfWeek, { locale })} monthNumber={dateFns.format(clickedDate, formatOfDay, { locale })} month={dateFns.format(clickedDate, formatOfMonth, { locale })} year={dateFns.format(clickedDate, formatOfYear, { locale })} />
+  <div style={{ display: displayCalendar ? 'block' : 'none' }}>
+    <Modal backDate={dateFns.format(clickedDate, "yyyy-MM-dd")} doConfigureFrontDate={configureFrontDate} doConfigureBackDate={configureBackDate} displayForm={displayForm} open={showModal} onClose={() => setShowModal(false)} calendarVisibility={calendarToggleVisibility} formVisibility={formToggleVisibility} weekDay={dateFns.format(clickedDate, formatOfWeek, { locale })} monthNumber={dateFns.format(clickedDate, formatOfDay, { locale })} month={dateFns.format(clickedDate, formatOfMonth, { locale })} year={dateFns.format(clickedDate, formatOfYear, { locale })} />
     <div className="calendar">
       <div className="calendar__head" style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', margin: '1rem 1rem 1rem 0'}}>
         <div className="calendar__head__month">

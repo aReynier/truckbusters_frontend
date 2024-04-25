@@ -3,14 +3,23 @@ import './Modal.scss'
 const Modal = (props) => {
     const { doConfigureFrontDate, doConfigureBackDate, formVisibility, open, onClose, calendarVisibility, weekDay, monthNumber, month, year, backDate } = props
     
+    let hours = [];
+
     //shifted hours on purpose to match time zone
-    const hours = [
+    if (weekDay === "samedi" ) {
+    hours = [
+        { label: '8H00', time: '06:00:00' },
+        { label: '10H00', time: '08:00:00' }
+      ]
+    } else {
+    hours = [
         { label: '6H00', time: '04:00:00' },
         { label: '8H00', time: '06:00:00' },
         { label: '10H00', time: '08:00:00' },
         { label: '12H00', time: '10:00:00' },
         { label: '14H00', time: '12:00:00' }
-      ]
+        ]
+    }
 
     return (
     <div>

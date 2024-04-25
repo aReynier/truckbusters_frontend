@@ -16,7 +16,7 @@ const formatOfDay = 'd';
 const locale = fr;
 
 const Calendar = (props) => {
-  const { calendarToggleVisibility, formToggleVisibility, displayCalendar, displayForm, configureFrontDate, configureBackDate } = props
+  const { duplicateMoments, calendarToggleVisibility, formToggleVisibility, displayCalendar, displayForm, configureFrontDate, configureBackDate } = props
 
   const [currentDate, setCurrentDate] = useState(new Date())
   //thinking about making separate component for the modal window
@@ -41,13 +41,13 @@ const Calendar = (props) => {
   const weekDays = dateFns.eachDayOfInterval({start: firstDayCurrentWeek, end: lastDayCurrentWeek})
 
   const handleDayClick = (clickedDate) => {
-    setClickedDate(clickedDate); // Assuming you have state variable clickedDate
+    setClickedDate(clickedDate); 
     setShowModal(true);
   };
 
   return (
   <div style={{ display: displayCalendar ? 'block' : 'none' }}>
-    <Modal backDate={dateFns.format(clickedDate, "yyyy-MM-dd")} doConfigureFrontDate={configureFrontDate} doConfigureBackDate={configureBackDate} displayForm={displayForm} open={showModal} onClose={() => setShowModal(false)} calendarVisibility={calendarToggleVisibility} formVisibility={formToggleVisibility} weekDay={dateFns.format(clickedDate, formatOfWeek, { locale })} monthNumber={dateFns.format(clickedDate, formatOfDay, { locale })} month={dateFns.format(clickedDate, formatOfMonth, { locale })} year={dateFns.format(clickedDate, formatOfYear, { locale })} />
+    <Modal duplicateMoments={duplicateMoments} backDate={dateFns.format(clickedDate, "yyyy-MM-dd")} doConfigureFrontDate={configureFrontDate} doConfigureBackDate={configureBackDate} displayForm={displayForm} open={showModal} onClose={() => setShowModal(false)} calendarVisibility={calendarToggleVisibility} formVisibility={formToggleVisibility} weekDay={dateFns.format(clickedDate, formatOfWeek, { locale })} monthNumber={dateFns.format(clickedDate, formatOfDay, { locale })} month={dateFns.format(clickedDate, formatOfMonth, { locale })} year={dateFns.format(clickedDate, formatOfYear, { locale })} />
     <div className="calendar">
       <div className="calendar__head" style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', margin: '1rem 1rem 1rem 0'}}>
         <div className="calendar__head__month">
@@ -65,7 +65,37 @@ const Calendar = (props) => {
         <p className="calendar__head__availability">Plusieurs disponibilités ce mois-ci</p>
       </div>
       <div className="calendar__date">
-      {weekDays.map((date) => (
+      {weekDays.map((date) => {
+        let availability = 5;
+        if (dateFns.isSaturday(date, currentDate)) {
+          availability = 2;
+        }
+
+        duplicateMoments.forEach((moment) => {
+          if (dateFns.isSameDay(date, moment)) {
+            availability--;
+            console.log(availability);
+          }
+        });
+
+        if( availability <= 0) {
+          return ( 
+            <button key={`${dateFns.format(date, formatOfDay)}-${dateFns.format(date, formatOfMonth)}-${dateFns.format(date, formatOfYear)}`} style={{ opacity: !dateFns.isSameMonth(date, currentDate)? '0': '',
+          display: dateFns.isSunday(date, currentDate)? 'none': ''
+          }} className={`calendar__date__card calendar__date__card--no ${!dateFns.isSameMonth(date, currentDate) ? 'calendar__date__card--hidden' : ''} ${ !dateFns.isSameMonth(date, currentDate) && (dateFns.getDay(firstDayCurrentMonth) === 0 && dateFns.getDate(firstDayCurrentMonth) === 1) ? 'calendar__date__card--always--hidden' : ''}`}
+           >
+            <div className="calendar__date__card__content calendar__date__card__content--no">
+              <span className="calendar__date__card__content__paragraph" style={{ color: !dateFns.isSameMonth(date, currentDate)? '#000': ''}}>{dateFns.format(date, formatOfWeek, { locale })} {dateFns.format(date, formatOfDay)}</span>
+            </div>
+            <div className="calendar__date__card__availability calendar__date__card__availability--no">
+              X
+            </div>
+          </button>
+          )
+
+        }
+
+        return (
           <button key={`${dateFns.format(date, formatOfDay)}-${dateFns.format(date, formatOfMonth)}-${dateFns.format(date, formatOfYear)}`} style={{ opacity: !dateFns.isSameMonth(date, currentDate)? '0': '',
           display: dateFns.isSunday(date, currentDate)? 'none': ''
           }} className={`calendar__date__card ${!dateFns.isSameMonth(date, currentDate) ? 'calendar__date__card--hidden' : ''} ${ !dateFns.isSameMonth(date, currentDate) && (dateFns.getDay(firstDayCurrentMonth) === 0 && dateFns.getDate(firstDayCurrentMonth) === 1) ? 'calendar__date__card--always--hidden' : ''}`}
@@ -75,13 +105,14 @@ const Calendar = (props) => {
               <span className="calendar__date__card__content__paragraph" style={{ color: !dateFns.isSameMonth(date, currentDate)? '#000': ''}}>{dateFns.format(date, formatOfWeek, { locale })} {dateFns.format(date, formatOfDay)}</span>
             </div>
             <div className="calendar__date__card__availability">
-              { dateFns.isSaturday(date, currentDate)? ( <p className="calendar__date__card__availability__paragraph">2 dispo.</p>
+              { dateFns.isSaturday(date, currentDate)? ( <p className="calendar__date__card__availability__paragraph">{availability} dispo.</p>
             ) : (
-              <p className="calendar__date__card__availability__paragraph">5 dispo.</p>
+              <p className="calendar__date__card__availability__paragraph">{availability} dispo.</p>
               )}
             </div>
           </button>
-          ))}
+            );
+          })}
       </div>
     </div>
   </div>

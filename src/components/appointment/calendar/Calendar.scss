@@ -60,6 +60,10 @@
       border: none !important;
       margin: auto;
 
+      &--no {
+        cursor: default;
+      }
+
       &__content{
         font-family: catamaran;
         font-size: 1.25rem;
@@ -71,6 +75,11 @@
         display: flex;
         align-items: center;
         padding-left: 0.625rem;
+
+        &--no {
+          background-color: var(--primary-beige);
+          opacity: 0.8;
+        }
       }
 
       &--always--hidden {
@@ -88,13 +97,18 @@
         align-items: center;
         font-family: "Source Sans 3";
         font-size: 1.25rem;
+
+        &--no {
+          border: solid 3px var(--primary-beige);
+          opacity: 0.8;
+        }
       }
     }
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .calendar__date__card--hidden {
+  .calendar__date__card--hidden, .calendar__date__card--no {
     display: none;
   }
 

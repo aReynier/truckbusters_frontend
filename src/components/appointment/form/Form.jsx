@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Form.scss'
+
 
 const Form = (props) => {
     const { getFrontDate, getBackDate, displayForm, calendarToggleVisibility, formToggleVisibility } = props
 
-const appointmentDate = new Date(getBackDate);
+    const appointmentDate = new Date(getBackDate);
 
     const[data, setData] =useState("");
     const[formData, setFormData] = useState({
@@ -14,12 +15,15 @@ const appointmentDate = new Date(getBackDate);
           }
     })
 
+    const formRef = useRef(null);
+
     useEffect(() => {
         appointmentDate.toISOString()
         
         if (formData.appointmentData.moment.toISOString() !== appointmentDate.toISOString()) {
             
             setFormData(prevFormData => ({
+                ...prevFormData,
         appointmentData: {
             "moment": appointmentDate,
             "deck": 1
@@ -60,6 +64,9 @@ const appointmentDate = new Date(getBackDate);
       
           if (!postResponse.ok) {
             throw new Error('Failed to send data');
+          } else {
+            formRef.current.reset();
+            alert("rendez-vous pris avez succès, un email de confirmation vous a été envoyé");
           }
       
         } catch (error) {
@@ -77,7 +84,7 @@ const appointmentDate = new Date(getBackDate);
             const result = await response.json();
             setData(result);
 
-            console.log(formData);
+            return data
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -104,7 +111,7 @@ const appointmentDate = new Date(getBackDate);
                 </div>
             </div>
             <h2 className="form__title">Vos coordonnées</h2>
-            <form className="form__content" onSubmit={handleSubmit}>
+            <form className="form__content" onSubmit={handleSubmit} ref={formRef}>
             <h3 className="form__content__sub__title">L&apos;entreprise:</h3>
                 <div className="form__content__group">
                     <div className="form__content__group__field">

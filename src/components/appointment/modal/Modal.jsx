@@ -1,7 +1,7 @@
 import './Modal.scss'
 
 const Modal = (props) => {
-    const { doConfigureFrontDate, doConfigureBackDate, formVisibility, open, onClose, calendarVisibility, weekDay, monthNumber, month, year, backDate } = props
+    const { duplicateMoments, doConfigureFrontDate, doConfigureBackDate, formVisibility, open, onClose, calendarVisibility, weekDay, monthNumber, month, year, backDate } = props
     
     let hours = [];
 
@@ -18,7 +18,7 @@ const Modal = (props) => {
         { label: '10H00', time: '08:00:00' },
         { label: '12H00', time: '10:00:00' },
         { label: '14H00', time: '12:00:00' }
-        ]
+      ]
     }
 
     return (
@@ -33,9 +33,11 @@ const Modal = (props) => {
             <p className="modal__window__date">Le {weekDay} {monthNumber} {month} {year}</p>
             <p className="modal__window__info">Choix de votre heure</p>
             <div className="modal__window__content">
-            {hours.map((hour, index) => (
+            {hours
+            .filter(hour => !duplicateMoments.includes(`${backDate}T${hour.time}.000Z`))
+            .map((hour, index) => (
                 <button
-                    key={index} // Using index as key is fine here if the items in the array are static
+                    key={index}
                     className="modal__window__content__Hour"
                     onClick={() => {
                     calendarVisibility();

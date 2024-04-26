@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Calendar from "./calendar/Calendar"
 import Form from "./form/Form"
+import './Appointment.scss'
 
 function App() {
     const [showCalendar, setShowCalendar] = useState(true);
@@ -69,6 +70,10 @@ function App() {
 
     return (
       <>
+        <div className='appointment'>
+          <h2 className='appointment__title'>Prendre rendez-vous</h2>
+          <h2 className='appointment__title'>/ / / / / /</h2>
+        </div>
         <Calendar duplicateMoments={duplicateMoments} configureFrontDate={updateFrontDateState} configureBackDate={updateBackDateState} calendarToggleVisibility={handleToggleCalendarVisibility} formToggleVisibility={handleToggleFormVisibility} displayCalendar={showCalendar} displayForm={showForm} />
         <Form getFrontDate={frontDate} getBackDate={backDate} calendarToggleVisibility={handleToggleCalendarVisibility} formToggleVisibility={handleToggleFormVisibility} displayForm={showForm} />
       </>

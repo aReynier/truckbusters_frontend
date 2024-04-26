@@ -37,7 +37,7 @@ const Form = (props) => {
         event.preventDefault();
 
         try {
-          const postResponse = await fetch('http://localhost:3002/api/v1/appointment', {
+          const postResponse = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment' || 'http://localhost:3002/api/v1/appointment', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ const Form = (props) => {
       useEffect(() => {
         const fetchAppointment = async () => {
           try {
-            const response = await fetch('http://localhost:3002/api/v1/appointment');
+            const response = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment' || 'http://localhost:3002/api/v1/appointment');
             if (!response.ok) {
               throw new Error('Failed to fetch data');
             }

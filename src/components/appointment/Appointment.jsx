@@ -28,7 +28,7 @@ function App() {
       useEffect(() => {
         const fetchAppointment = async () => {
           try {
-            const response = await fetch('http://localhost:3002/api/v1/appointment');
+            const response = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment' || 'http://localhost:3002/api/v1/appointment');
             if (!response.ok) {
               throw new Error('Failed to fetch data');
             }
@@ -48,9 +48,6 @@ function App() {
       if (data) {
         const momentsArray = data.appointments.map(appointment => appointment.moment);
         dataArray = momentsArray;
-        console.log(dataArray);
-      } else {
-        console.log("Data is not available yet");
       }
    
     // Initialize an object to store moment occurrences
@@ -69,12 +66,6 @@ function App() {
 
     // Check if any moment occurs more than once
     const duplicateMoments = Object.keys(momentOccurrences).filter(moment => momentOccurrences[moment] > 1);
-
-    if (duplicateMoments.length > 0) {
-      console.log("Duplicate moments found:", duplicateMoments);
-    } else {
-      console.log("No duplicate moments found.");
-    }
 
     return (
       <>

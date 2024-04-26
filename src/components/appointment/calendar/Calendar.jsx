@@ -74,7 +74,6 @@ const Calendar = (props) => {
         duplicateMoments.forEach((moment) => {
           if (dateFns.isSameDay(date, moment)) {
             availability--;
-            console.log(availability);
           }
         });
 

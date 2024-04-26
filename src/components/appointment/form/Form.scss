@@ -11,7 +11,8 @@
     font-weight: 700;
     padding: 35px;
     margin-bottom: 30px;
-    margin-left: 50px;
+    max-width: 950px;
+    margin: auto;
 
     &__icon {
         cursor: pointer;
@@ -81,6 +82,12 @@
 @media screen and (max-width: 700px) {
     .form__content__group {
         flex-direction: column;
+    }
+
+    .form__content__group__field {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .form__selected__hour {

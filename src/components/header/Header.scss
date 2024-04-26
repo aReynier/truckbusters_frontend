@@ -1,5 +1,5 @@
 .header {
-    width: calc(100vw - 20px);
+    width: 100%;
     margin-bottom: 20px;
 
     &__first {
@@ -37,6 +37,10 @@
     .header__first, .header__second {
         padding-left: 0px;
         padding-right: 0px;
+    }
+
+    .header__second img {
+        height: 50px;
     }
 }
 

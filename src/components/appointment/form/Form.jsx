@@ -99,7 +99,7 @@ const Form = (props) => {
                 <h2 className="form__title">Horaire choisie</h2>
                 <div className="form__selected__hour">
                     <p>{getFrontDate}</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 form__selected__hour__icon"
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="form__selected__hour__icon"
                     onClick={() => {
                         calendarToggleVisibility();
                         formToggleVisibility();

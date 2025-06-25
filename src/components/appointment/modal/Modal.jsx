@@ -25,7 +25,7 @@ const Modal = (props) => {
     <div>
         <div className="modal" style={{ display: open ? 'flex' : 'none' }}>
         <div className="modal__window">
-            <button className="modal__window--close" onClick={() => onClose(false)}>
+            <button className="modal__window--close" onClick={() => onClose(false)} data-testid="modal__window--close">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="modal_icon">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>

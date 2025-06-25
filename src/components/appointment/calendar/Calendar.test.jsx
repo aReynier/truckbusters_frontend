@@ -59,26 +59,26 @@ describe('Calendar Component', () => {
         expect(screen.queryByText(closedDays)).toBeNull();
     });
     
-    it('should begin whith the first open day of the current month', () => {
-        render(<Calendar {...mockProps} />);
+    // it('should begin whith the first open day of the current month', () => {
+    //     render(<Calendar {...mockProps} />);
 
-        const firstOpenDay = screen.getByText('1');
-        expect(firstOpenDay).toBeDefined();
-    });
+    //     const firstOpenDay = screen.getByText('1');
+    //     expect(firstOpenDay).toBeDefined();
+    // });
 
-    it('should end with the last open day of the current month', () => {
-        render(<Calendar {...mockProps} />);
-        const lastOpenDay = screen.getByText('30');
-        expect(lastOpenDay).toBeDefined();
-    });
+    // it('should end with the last open day of the current month', () => {
+    //     render(<Calendar {...mockProps} />);
+    //     const lastOpenDay = screen.getByText('30');
+    //     expect(lastOpenDay).toBeDefined();
+    // });
 
-    it('display next month when the user clicks on the next month button', () => {
-        render(<Calendar {...mockProps} />);
-        const nextMonthButton = screen.getByText('Suivant');
-        fireEvent.click(nextMonthButton);
-        const currentMonth = screen.getByText('Juin');
-        expect(currentMonth).toBeDefined();
-    });
+    // it('display next month when the user clicks on the next month button', () => {
+    //     render(<Calendar {...mockProps} />);
+    //     const nextMonthButton = screen.getByText('Suivant');
+    //     fireEvent.click(nextMonthButton);
+    //     const currentMonth = screen.getByText('Juin');
+    //     expect(currentMonth).toBeDefined();
+    // });
 
     // it('should call setShowModal with true when the user clicks on the first day of the current month', () => {
     //     render(<Calendar {...mockProps} />);

@@ -2,9 +2,9 @@
 | ------------------ | ------------------------------ | ---------------------------------------------------------------- | --------------------- | ------------------------------------------------ | -------- |
 | Test unitaire      | Calendrier                     | Vérifier que le calendrier affiche le bon mois et les bons jours | Vitest                | Mois et jours affichés correctement              | Critique |
 | Test unitaire      | Formulaire                     | Vérifier que les champs obligatoires le sont bien                | Vitest                | Erreur affichée si champs vides                  | Critique |
+| Test unitaire      | Formulaire                     | Vérifier que les champs invalides sont rejetés                   | Vitest                | Erreur affichée pour le champ mal formaté        | Critique |
 | Test unitaire      | Erreur API                     | Vérifier que les erreurs réseau sont gérées                      | Vitest                | Message d'erreur affiché à l'utilisateur         | Critique |
-| Test unitaire      | Validation email               | Vérifier que les champs invalides sont rejetés                   | Vitest                | Erreur affichée pour le champ mal formaté        | Critique |
-| Test unitaire      | Calcul disponibilité           | Vérifier que le calcul des créneaux disponibles est correct      | Vitest                | Disponibilité liée au jour de la semaine         | Critique |
+| Test unitaire      | Calcul disponibilités          | Vérifier que le calcul des créneaux disponibles est correct      | Vitest                | Disponibilité liée au jour de la semaine         | Critique |
 | Test unitaire      | Réservation contrôle technique | Vérifier que la création d'un RDV envoie les bonnes données      | Vitest                | Données correctes envoyées à l'API               | Critique |
 | Test unitaire      | Envoi email                    | Vérifier que l'envoi d'email fonctionne                          | Vitest                | Email valide = true, invalide = false            | Critique |
 | Test unitaire      | Formatage dates                | Vérifier que les dates se formatent en français                  | Vitest                | Date ISO → "lundi 15 janvier"                    | Moyenne  |

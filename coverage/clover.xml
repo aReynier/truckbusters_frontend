@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1750866664146" clover="3.2.0">
-  <project timestamp="1750866664146" name="All files">
-    <metrics statements="635" coveredstatements="517" conditionals="93" coveredconditionals="79" methods="27" coveredmethods="21" elements="755" coveredelements="617" complexity="0" loc="635" ncloc="635" packages="8" files="9" classes="9"/>
+<coverage generated="1750882094918" clover="3.2.0">
+  <project timestamp="1750882094918" name="All files">
+    <metrics statements="677" coveredstatements="517" conditionals="94" coveredconditionals="79" methods="28" coveredmethods="21" elements="799" coveredelements="617" complexity="0" loc="677" ncloc="677" packages="8" files="10" classes="10"/>
     <package name="truckbusters_frontend">
-      <metrics statements="39" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="81" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name=" eslint.config.js" path="/home/aurore/Documents/cda-simplon-val/021-truckbusters/truckbusters_frontend/ eslint.config.js">
         <metrics statements="39" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
@@ -45,6 +45,51 @@
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
+      </file>
+      <file name="playwright.config.ts" path="/home/aurore/Documents/cda-simplon-val/021-truckbusters/truckbusters_frontend/playwright.config.ts">
+        <metrics statements="42" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
       </file>
     </package>
     <package name="truckbusters_frontend.src">

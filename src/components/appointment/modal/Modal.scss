@@ -11,7 +11,7 @@
     &__window {
         width: 470px;
         height: 255px;
-        background-color: var(--secondary-beige);
+        background-color: var(--white);
         border: 3px solid var(--primary-beige);
         display: flex;
         flex-direction: column;
@@ -19,7 +19,11 @@
 
         &--close {
             color: black;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
             align-self: flex-end;
+            width: 40px;
             margin-top: 15px;
             margin-right: 15px;
         }
@@ -29,12 +33,14 @@
             font-family: catamaran;
             font-size: 22px;
             font-weight: 700;
+            margin: 0;
         }
 
         &__info {
             color: var(--primary-blue);
             font-family: "Source Sans 3";
             font-size: 18px;
+            margin: 0;
         }
 
         &__content {
@@ -47,9 +53,11 @@
             margin-bottom: 35px;
 
             &__hour {
+                border: none;
                 width: 80px;
                 height: 35px;
                 background-color: var(--primary-green);
+                cursor: pointer;
                 color: var(--primary-blue);
                 font-family: catamaran;
                 font-weight: 700;

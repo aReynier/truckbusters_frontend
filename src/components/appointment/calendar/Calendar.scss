@@ -23,6 +23,7 @@
       }
 
       &__button {
+        border: none;
         background-color: var(--primary-green);
         border-radius: 0;
         display: flex;
@@ -60,7 +61,8 @@
 
     &__card{
       border: none !important;
-      margin: auto;
+      cursor: pointer;
+      padding: 0;
 
       &--no {
         cursor: default;
@@ -72,7 +74,6 @@
         font-weight: 700;
         color: var(--primary-blue);
         background-color: var(--primary-green);
-        width: 8.125rem;
         height: 2.5rem;
         display: flex;
         align-items: center;
@@ -92,7 +93,6 @@
         color: black;
         background-color: white;
         border: solid 3px var(--primary-green);
-        width: 8.125rem;
         height: 4.688rem;
         display: flex;
         justify-content: center;

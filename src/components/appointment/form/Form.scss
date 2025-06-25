@@ -50,6 +50,7 @@
 }
 
 .form__content__input {
+    color: var(--black);
     background-color: white;
     border: 3px solid var(--primary-beige);
     padding: 3px;
@@ -79,6 +80,7 @@
     font-size: 24px;
     font-weight: 700;
     cursor: pointer;
+    border: none;
 }
 
 @media screen and (max-width: 700px) {

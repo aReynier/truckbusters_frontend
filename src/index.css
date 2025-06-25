@@ -7,6 +7,8 @@
   --primary-blue: #0C0C4D;
   --primary-beige: #D0BD95;
   --secondary-beige: #E3D7BF;
+  --white: #FFFFFF;
+  --black: #000000;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

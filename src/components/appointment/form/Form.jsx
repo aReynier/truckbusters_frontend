@@ -190,8 +190,8 @@ const Form = (props) => {
 
     return (
         <div style={{ display: displayForm ? 'block' : 'none' }} >
-            <div className="form">
-                <h2 className="form__title">Horaire choisie</h2>
+            <div className="form" data-testid="form">
+                <h2 className="form__title" data-testid="form__title">Horaire choisie</h2>
                 <div className="form__selected__hour">
                     <p>{getFrontDate}</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="form__selected__hour__icon"
@@ -327,6 +327,7 @@ const Form = (props) => {
                     type="submit"
                     value="Confirmer"
                     className="form__submit"
+                    data-testid="form__submit"
                 />
             </form>
         </div>

@@ -48,7 +48,7 @@ const Calendar = (props) => {
   return (
   <div style={{ display: displayCalendar ? 'block' : 'none' }}>
     <Modal duplicateMoments={duplicateMoments} backDate={dateFns.format(clickedDate, "yyyy-MM-dd")} doConfigureFrontDate={configureFrontDate} doConfigureBackDate={configureBackDate} displayForm={displayForm} open={showModal} onClose={() => setShowModal(false)} calendarVisibility={calendarToggleVisibility} formVisibility={formToggleVisibility} weekDay={dateFns.format(clickedDate, formatOfWeek, { locale })} monthNumber={dateFns.format(clickedDate, formatOfDay, { locale })} month={dateFns.format(clickedDate, formatOfMonth, { locale })} year={dateFns.format(clickedDate, formatOfYear, { locale })} />
-    <div className="calendar">
+    <div className="calendar" data-testid="calendar">
       <div className="calendar__head" style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', margin: '1rem 1rem 1rem 0'}}>
         <div className="calendar__head__month">
           <button
@@ -98,8 +98,8 @@ const Calendar = (props) => {
           <button key={`${dateFns.format(date, formatOfDay)}-${dateFns.format(date, formatOfMonth)}-${dateFns.format(date, formatOfYear)}`} style={{ opacity: !dateFns.isSameMonth(date, currentDate)? '0': '',
           display: dateFns.isSunday(date, currentDate)? 'none': ''
           }} className={`calendar__date__card ${!dateFns.isSameMonth(date, currentDate) ? 'calendar__date__card--hidden' : ''} ${ !dateFns.isSameMonth(date, currentDate) && (dateFns.getDay(firstDayCurrentMonth) === 0 && dateFns.getDate(firstDayCurrentMonth) === 1) ? 'calendar__date__card--always--hidden' : ''}`}
-          onClick={() => handleDayClick(date)
-            } >
+          onClick={() => handleDayClick(date)}
+          data-testid={`calendar__date__card__${dateFns.format(date, formatOfDay)}`}>
             <div className="calendar__date__card__content">
               <span className="calendar__date__card__content__paragraph" style={{ color: !dateFns.isSameMonth(date, currentDate)? '#000': ''}}>{dateFns.format(date, formatOfWeek, { locale })} {dateFns.format(date, formatOfDay)}</span>
             </div>

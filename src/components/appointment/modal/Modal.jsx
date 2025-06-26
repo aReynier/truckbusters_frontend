@@ -23,22 +23,23 @@ const Modal = (props) => {
 
     return (
     <div>
-        <div className="modal" style={{ display: open ? 'flex' : 'none' }}>
+        <div className="modal" style={{ display: open ? 'flex' : 'none' }} data-testid="modal">
         <div className="modal__window">
-            <button className="modal__window--close" onClick={() => onClose(false)}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <button className="modal__window--close" onClick={() => onClose(false)} data-testid="modal__window--close">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="modal_icon">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </button>
             <p className="modal__window__date">Le {weekDay} {monthNumber} {month} {year}</p>
-            <p className="modal__window__info">Choix de votre heure</p>
+            <p className="modal__window__info" data-testid="modal__window__info">Choix de votre heure</p>
             <div className="modal__window__content">
             {hours
             .filter(hour => !duplicateMoments.includes(`${backDate}T${hour.time}.000Z`))
             .map((hour, index) => (
                 <button
                     key={index}
-                    className="modal__window__content__Hour"
+                    data-testid={`modal__window__content__hour__${hour.label}`}
+                    className="modal__window__content__hour"
                     onClick={() => {
                     calendarVisibility();
                     formVisibility();

@@ -35,7 +35,7 @@ function App() {
         setError(null);
 
         try {
-          const response = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment');
+          const response = await fetch(import.meta.env.VITE_API_APPOINTMENTS);
           if (!response.ok) {
             throw new Error('Failed to fetch data');
           }

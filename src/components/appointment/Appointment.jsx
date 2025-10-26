@@ -35,7 +35,7 @@ function App() {
         setError(null);
 
         try {
-          const response = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment' || 'http://localhost:3002/api/v1/appointment');
+          const response = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment');
           if (!response.ok) {
             throw new Error('Failed to fetch data');
           }

@@ -869,7 +869,7 @@ const Form = (props) =&gt; {
 <span class="branch-0 cbranch-no" title="branch not covered" >        }</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >          const postResponse = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment', {</span>
+<span class="cstat-no" title="statement not covered" >          const postResponse = await fetch(import.meta.env.VITE_API_APPOINTMENTS, {</span>
 <span class="cstat-no" title="statement not covered" >            method: 'POST',</span>
 <span class="cstat-no" title="statement not covered" >            headers: {</span>
 <span class="cstat-no" title="statement not covered" >              'Content-Type': 'application/json'</span>
@@ -909,7 +909,7 @@ const Form = (props) =&gt; {
       useEffect(() =&gt; {
         const fetchAppointment = async () =&gt; {
           try {
-            const response = await fetch('https://truckbusters-backend.onrender.com/api/v1/appointment');
+            const response = await fetch(import.meta.env.VITE_API_APPOINTMENTS);
             if (!response.ok) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >              throw new Error('Failed to fetch data');</span>
 <span class="cstat-no" title="statement not covered" >            }</span>
